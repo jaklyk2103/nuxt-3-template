@@ -9,7 +9,8 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "test": "vitest --passWithNoTests",
-    "typecheck": "nuxi typecheck"
+    "typecheck": "nuxi typecheck",
+    "prepare": "husky"
   },
   "dependencies": {
     "nuxt": "^3.11.2",
@@ -27,9 +28,18 @@
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
     "happy-dom": "^14.12.3",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
     "prettier": "^3.2.5",
     "typescript": "^5.5.3",
     "vitest": "^2.0.2",
     "vue-tsc": "^2"
+  },
+  "lint-staged": {
+    "*.{ts,vue}": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ],
+    "*.{ts,js,cjs,vue,gql,graphql,html,css,scss,json,md}": "prettier --write"
   }
 }
